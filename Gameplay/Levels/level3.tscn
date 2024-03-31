@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://5lsw7nyymn65"]
+
+[ext_resource type="Script" path="res://Gameplay/Levels/level.gd" id="1_vki2p"]
+[ext_resource type="TileSet" uid="uid://d0w5ox30bfojf" path="res://Gameplay/Levels/tileset.tres" id="2_ncicf"]
+[ext_resource type="PackedScene" uid="uid://blc8pts5kgsl0" path="res://Gameplay/player.tscn" id="3_xui35"]
+[ext_resource type="PackedScene" uid="uid://b0o33vveq8wx5" path="res://Gameplay/door.tscn" id="4_u4u12"]
+
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("player", "doors")]
+script = ExtResource("1_vki2p")
+player = NodePath("Player")
+doors = [NodePath("NorthWestDoor"), NodePath("NorthEastDoor")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_ncicf")
+format = 2
+layer_0/name = "Ground"
+layer_0/tile_data = PackedInt32Array(65536, 0, 4, 65537, 0, 4, 65538, 0, 4, 65539, 0, 4, 65540, 393216, 3, 65541, 0, 4, 65542, 0, 4, 65543, 0, 4, 65544, 0, 4, 65545, 0, 4, 65546, 0, 4, 65547, 393216, 3, 65548, 0, 4, 65549, 0, 4, 131085, 196608, 4, 327693, 0, 4, 393229, 0, 4, 393228, 0, 4, 393226, 0, 4, 393225, 0, 4, 393224, 0, 4, 393223, 0, 4, 393222, 0, 4, 393221, 0, 4, 393219, 65536, 4, 393218, 0, 4, 393217, 0, 4, 393216, 0, 4, 327680, 0, 4, 262144, 0, 4, 196608, 0, 4, 131072, 0, 4, 131073, 131072, 4, 131074, 196608, 4, 131075, 131072, 4, 131076, 393216, 3, 131077, 131072, 4, 131078, 196608, 4, 131079, 131072, 4, 131080, 131072, 4, 131081, 131072, 4, 131082, 196608, 4, 131083, 393216, 3, 131084, 131072, 4, 196620, 0, 4, 262156, 0, 4, 327692, 0, 4, 327691, 0, 4, 327690, 0, 4, 327689, 0, 4, 327688, 0, 4, 327687, 0, 4, 327686, 0, 4, 327685, 0, 4, 327684, 0, 4, 327683, 0, 4, 327682, 0, 4, 327681, 0, 4, 262145, 0, 4, 262146, 0, 4, 262147, 0, 4, 262148, 0, 4, 262149, 0, 4, 262150, 0, 4, 262151, 0, 4, 262152, 65536, 4, 262153, 0, 4, 262154, 0, 4, 262155, 0, 4, 196619, 0, 4, 196618, 0, 4, 196617, 0, 4, 196616, 0, 4, 196615, 0, 4, 196614, 0, 4, 196613, 0, 4, 196612, 0, 4, 196611, 0, 4, 196610, 0, 4, 196609, 0, 4, 196621, 0, 4, 393227, 0, 4, 393220, 0, 4, 262157, 0, 4, 4, 393216, 3, 11, 393216, 3)
+layer_1/name = "Ground2"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Walls"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(65537, 262144, 3, 65544, 327680, 2, 65545, 262144, 3, 65546, 720896, 4, 65548, 589824, 4, 65549, 262144, 3, 13, 131072, 0, 12, 262144, 1, 10, 327680, 1, 9, 131072, 0, 8, 131072, 0, 7, 131072, 0, 6, 131072, 0, 5, 262144, 1, 3, 327680, 1, 2, 131072, 0, 1, 131072, 0, 0, 65536, 0, 14, 196608, 0, 65550, 196608, 1, 131086, 196608, 1, 196622, 196608, 1, 458766, 196608, 2, 524301, 0, 0, 524300, 0, 0, 524298, 0, 0, 524297, 0, 0, 524296, 0, 0, 524295, 0, 0, 524294, 0, 0, 524293, 0, 0, 458765, 131072, 2, 458764, 131072, 2, 458762, 131072, 2, 458761, 131072, 2, 458760, 131072, 2, 458759, 131072, 2, 458758, 131072, 2, 458757, 131072, 2, 458755, 131072, 2, 458754, 131072, 2, 458753, 131072, 2, 458752, 65536, 2, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 2, 524302, 0, 0, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 393216, 65536, 1, 327694, 196608, 1, 393230, 196608, 1, 65541, 589824, 4, 65539, 720896, 4, 65538, 458752, 1, 65542, 262144, 2, 65543, 327680, 2, 131074, 458752, 2, 458756, 131072, 2, 458763, 131072, 2, 524292, 0, 0, 524299, 0, 2, 262158, 196608, 1, 262151, 458752, 7, 327683, 0, 6, 327684, 65536, 6, 327682, 65536, 6)
+
+[node name="Player" parent="." instance=ExtResource("3_xui35")]
+position = Vector2(184, 72)
+
+[node name="NorthWestDoor" parent="." instance=ExtResource("4_u4u12")]
+position = Vector2(72, -8)
+entry_direction = 2
+transition_type = "zelda"
+path_to_new_scene = "res://Gameplay/Levels/level2.tscn"
+entry_door_name = "SouthWestDoor"
+
+[node name="NorthEastDoor" parent="." instance=ExtResource("4_u4u12")]
+position = Vector2(184, -8)
+entry_direction = 2
+transition_type = "zelda"
+path_to_new_scene = "res://Gameplay/Levels/level2.tscn"
+entry_door_name = "SouthEastDoor"

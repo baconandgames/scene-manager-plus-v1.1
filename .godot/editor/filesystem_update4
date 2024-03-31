@@ -1,0 +1,11 @@
+res://Gameplay/gameplay.tscn
+res://Gameplay/Levels/tileset.tres
+res://Gameplay/gameplay.gd
+res://Menus/start_screen.tscn
+res://Gameplay/Levels/level1.tscn
+res://Gameplay/Levels/level2.tscn
+res://Menus/loading_screen.tscn
+res://Menus/start_screen.gd
+res://Gameplay/door.gd
+res://Autoloads/SceneManager.gd
+res://Gameplay/player.gd

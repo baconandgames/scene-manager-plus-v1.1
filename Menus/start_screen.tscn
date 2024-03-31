@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy06fpapockt1"]
+
+[ext_resource type="Script" path="res://Menus/start_screen.gd" id="1_v6k1a"]
+[ext_resource type="TileSet" uid="uid://d0w5ox30bfojf" path="res://Gameplay/Levels/tileset.tres" id="2_vj7st"]
+[ext_resource type="Texture2D" uid="uid://b4pjabxp4svc7" path="res://Menus/Sprites/title.png" id="3_r1vcg"]
+[ext_resource type="FontFile" uid="uid://umca55vebbac" path="res://Menus/Sprites/OpenSans-Bold.ttf" id="4_fx4s6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r03hu"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.360784)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ng4jn"]
+bg_color = Color(0.592157, 0.27451, 0.584314, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.592157, 0.27451, 0.584314, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.360784)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6k1a")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_vj7st")
+format = 2
+layer_0/name = "Ground"
+layer_0/tile_data = PackedInt32Array(0, 0, 4, 65536, 0, 4, 131072, 0, 4, 196608, 0, 4, 262144, 0, 4, 327680, 0, 4, 393216, 0, 4, 458752, 0, 4, 524288, 0, 4, 1, 0, 4, 65537, 0, 4, 131073, 131072, 4, 196609, 0, 4, 262145, 0, 4, 327681, 0, 4, 393217, 0, 4, 458753, 0, 4, 524289, 0, 4, 2, 0, 4, 65538, 0, 4, 131074, 131072, 4, 196610, 0, 4, 262146, 0, 4, 327682, 0, 4, 393218, 65536, 4, 458754, 0, 4, 524290, 0, 4, 3, 0, 4, 65539, 0, 4, 131075, 196608, 4, 196611, 0, 4, 262147, 0, 4, 327683, 0, 4, 393219, 0, 4, 458755, 0, 4, 524291, 0, 4, 4, 0, 4, 65540, 0, 4, 131076, 131072, 4, 196612, 0, 4, 262148, 0, 4, 327684, 0, 4, 393220, 0, 4, 458756, 0, 4, 524292, 0, 4, 5, 0, 4, 65541, 0, 4, 131077, 131072, 4, 196613, 0, 4, 262149, 0, 4, 327685, 0, 4, 393221, 0, 4, 458757, 0, 4, 524293, 0, 4, 6, 0, 4, 65542, 0, 4, 131078, 131072, 4, 196614, 65536, 4, 262150, 0, 4, 327686, 0, 4, 393222, 0, 4, 458758, 0, 4, 524294, 0, 4, 7, 0, 4, 65543, 0, 4, 131079, 196608, 4, 196615, 0, 4, 262151, 0, 4, 327687, 0, 4, 393223, 0, 4, 458759, 0, 4, 524295, 0, 4, 8, 65536, 4, 65544, 0, 4, 131080, 131072, 4, 196616, 0, 4, 262152, 0, 4, 327688, 0, 4, 393224, 0, 4, 458760, 0, 4, 524296, 0, 4, 9, 0, 4, 65545, 0, 4, 131081, 131072, 4, 196617, 0, 4, 262153, 0, 4, 327689, 0, 4, 393225, 0, 4, 458761, 0, 4, 524297, 0, 4, 10, 0, 4, 65546, 0, 4, 131082, 131072, 4, 196618, 0, 4, 262154, 0, 4, 327690, 65536, 4, 393226, 0, 4, 458762, 0, 4, 524298, 0, 4, 11, 0, 4, 65547, 0, 4, 131083, 131072, 4, 196619, 0, 4, 262155, 0, 4, 327691, 0, 4, 393227, 0, 4, 458763, 0, 4, 524299, 0, 4, 12, 0, 4, 65548, 0, 4, 131084, 131072, 4, 196620, 0, 4, 262156, 0, 4, 327692, 0, 4, 393228, 0, 4, 458764, 0, 4, 524300, 0, 4, 13, 0, 4, 65549, 0, 4, 131085, 196608, 4, 196621, 0, 4, 262157, 0, 4, 327693, 0, 4, 393229, 0, 4, 458765, 65536, 4, 524301, 0, 4, 14, 0, 4, 65550, 0, 4, 131086, 0, 4, 196622, 0, 4, 262158, 0, 4, 327694, 0, 4, 393230, 0, 4, 458766, 0, 4, 524302, 0, 4)
+layer_1/name = "Decoration"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(458752, 327680, 1, 393216, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 327680, 65536, 1, 65550, 196608, 1, 131086, 196608, 1, 196622, 196608, 1, 262158, 196608, 1, 327694, 196608, 1, 393230, 196608, 1, 458766, 262144, 1, 0, 65536, 0, 14, 196608, 0, 1, 131072, 0, 2, 131072, 0, 3, 131072, 0, 4, 131072, 0, 5, 131072, 0, 6, 131072, 0, 7, 131072, 0, 8, 131072, 0, 9, 131072, 0, 10, 131072, 0, 11, 131072, 0, 12, 131072, 0, 13, 131072, 0, 65537, 262144, 3, 65538, 262144, 2, 65539, 262144, 3, 65540, 327680, 2, 65541, 589824, 3, 65545, 262144, 3, 65546, 262144, 2, 65547, 262144, 3, 65548, 262144, 3, 65549, 262144, 3, 65542, 327680, 2, 65544, 262144, 3, 65543, 262144, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120, 73)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_r1vcg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 72
+theme_override_constants/margin_bottom = 14
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_fx4s6")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_r03hu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ng4jn")
+text = "ENTER"
+
+[node name="VersionNum" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 3.0
+offset_right = 63.0
+offset_bottom = 11.0
+theme_override_font_sizes/font_size = 5
+text = "version"
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/MarginContainer/Button" to="." method="_on_button_button_up"]

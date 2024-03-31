@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://gwxoou8p7203"]
+
+[ext_resource type="Script" path="res://Gameplay/gameplay.gd" id="1_5mffn"]
+[ext_resource type="Texture2D" uid="uid://cufg7jn2mco77" path="res://Gameplay/Sprites/heart-small.png" id="1_x5sij"]
+[ext_resource type="PackedScene" uid="uid://b4k1r366hh84x" path="res://Gameplay/Levels/level1.tscn" id="2_7rnvs"]
+
+[node name="Gameplay" type="Node2D" groups=["gameplay"]]
+script = ExtResource("1_5mffn")
+
+[node name="LevelHolder" type="Node2D" parent="."]
+
+[node name="Level1" parent="LevelHolder" instance=ExtResource("2_7rnvs")]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+
+[node name="GridContainer" type="GridContainer" parent="HUD/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Heart" type="TextureRect" parent="HUD/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_x5sij")
+
+[node name="Heart2" type="TextureRect" parent="HUD/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_x5sij")
+
+[node name="Heart3" type="TextureRect" parent="HUD/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_x5sij")

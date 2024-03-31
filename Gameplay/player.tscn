@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://blc8pts5kgsl0"]
+
+[ext_resource type="Script" path="res://Gameplay/player.gd" id="1_b147c"]
+[ext_resource type="Texture2D" uid="uid://dujsrqga5hmxa" path="res://Gameplay/Sprites/shadow.png" id="2_pq0v5"]
+[ext_resource type="Texture2D" uid="uid://bu614o0p08m24" path="res://Gameplay/Sprites/wizard.png" id="3_6vrvk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dvboj"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_320uc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_u811x"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_wtlcy"]
+resource_name = "walk"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -8), Vector2(2.08165e-12, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5egwv"]
+_data = {
+"RESET": SubResource("Animation_320uc"),
+"idle": SubResource("Animation_u811x"),
+"walk": SubResource("Animation_wtlcy")
+}
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(65, 86)
+script = ExtResource("1_b147c")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.243137)
+position = Vector2(0, 5)
+texture = ExtResource("2_pq0v5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
+texture = ExtResource("3_6vrvk")
+offset = Vector2(2.08165e-12, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_dvboj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5egwv")
+}
