@@ -26,7 +26,15 @@ func _on_body_entered(body: Node2D) -> void:
 	var unload:Node = gameplay_node.current_level	# we're now responsible for tracking this 
 	
 	if transition_type == "zelda":
+		
+		if entry_direction in [0, 2]:
+			body.move_dir.x = 0
+		
+		else:
+			body.move_dir.y = 0
+		
 		SceneManager.swap_scenes_zelda(path_to_new_scene, gameplay_node.level_holder, unload, body.move_dir)
+	
 	else:
 		SceneManager.swap_scenes(path_to_new_scene,gameplay_node.level_holder,unload,transition_type)
 	queue_free()

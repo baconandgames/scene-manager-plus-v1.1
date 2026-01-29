@@ -2,9 +2,9 @@ extends Node
 
 ## The SceneManager class is designed to enable simple one-line calls to load one scene (Node)
 ## and unload another. It also handles monitoring load progress, which can displayed as a loading
-## bar to the user and it gives you optional transitions for swapping between them. Data can also 
+## bar to the user, and it gives you optional transitions for swapping between them. Data can also 
 ## be handed off between scenes by implementing methods within the scenes being loaded/unloaded (see 
-## [method _on_content_finished_loading] for more detail. The inteded use is to switch between major
+## [method _on_content_finished_loading] for more detail. The intended use is to switch between major
 ## screens (like Start and Gameplay and GameOver) or between levels. SceneManager CAN be used to load
 ## other assets, but it's not intended to manage loading frequently used items like spawning enemies
 ## or bullets. This is for high-level game management. [br][br]
@@ -14,16 +14,16 @@ extends Node
 ## but folks ask for more control so v1.1 was born! Additionally, this updated heavily decouples
 ## game logic from the SceneManager to make it easier to utilize in your own game. There are no more
 ## class type checks within the SceneManager. Instead, I've opted to use has_method checks that
-## loaded classes may optionall implement to react to the loading process without having to change
+## loaded classes may optionally implement to react to the loading process without having to change
 ## SceneManager to suit your game's internal code. There are also now signals you can listen for to
 ## easily make changes to your SceneTree at different moments during the loading progress, again allowing
 ## classes using SceneManager to react to the process instead of having to insert that logic into the SceneManager
-## iteslf. There are certainly tradeoffs to this method, but hey that's programming. You may 
+## itself There are certainly tradeoffs to this method, but hey that's programming. You may 
 ## edit this to suit your needs. I tried to strike a balance between keeping the code fairly flexible
 ## without abstracting it so far that it would be hard to follow or asking users to pass in too many
-## arugments when loading a scene. [br][br]
+## arguments when loading a scene. [br][br]
 ## [b]One Final Note[/b] Despite this leveraging the [ResourceLoader] class to monitor loading,
-## SceneManager does not at this time support treaded loading. The current system will simply reject 
+## SceneManager does not at this time support threaded loading. The current system will simply reject 
 ## loading an asset if one is already in progress. Managing multiple concurrent items was out of the
 ## scope of v.1.1 but may be implemented in future versions. Be mindful of how frequently a user might 
 ## be able to take action that triggers SceneManager to load something as it will fail silently right now
@@ -125,6 +125,7 @@ func swap_scenes_zelda(scene_to_load:String, load_into:Node, scene_to_unload:Nod
 	_load_scene_into = load_into
 	_scene_to_unload = scene_to_unload
 	_zelda_transition_direction = move_dir
+
 	_load_content(scene_to_load)
 
 ## internal - initailizes content. It's broken out in to its own function because this code would be repeated in
@@ -216,8 +217,11 @@ func _on_content_finished_loading(incoming_scene) -> void:
 #	This block is only used by the zelda transition, which is a special case that doesn't use the loading screen
 	if _transition == "zelda":
 		# slide new level in
+		
+
 		incoming_scene.position.x = _zelda_transition_direction.x * LEVEL_W
 		incoming_scene.position.y = _zelda_transition_direction.y * LEVEL_H
+
 		var tween_in:Tween = get_tree().create_tween()
 		tween_in.tween_property(incoming_scene, "position", Vector2.ZERO, 1).set_trans(Tween.TRANS_SINE)
 
@@ -226,6 +230,7 @@ func _on_content_finished_loading(incoming_scene) -> void:
 		var vector_off_screen:Vector2 = Vector2.ZERO
 		vector_off_screen.x = -_zelda_transition_direction.x * LEVEL_W
 		vector_off_screen.y = -_zelda_transition_direction.y * LEVEL_H
+
 		tween_out.tween_property(outgoing_scene, "position", vector_off_screen, 1).set_trans(Tween.TRANS_SINE)
 	#	# once the tweens are done, do some cleanup
 		await tween_in.finished
